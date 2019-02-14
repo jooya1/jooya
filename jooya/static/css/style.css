@@ -107,7 +107,7 @@ body {
   -ms-flex-align: center;
       align-items: center;
   font-family: 'Poppins', sans-serif;
-  background: url("images/Searchs_006.png");
+  /*background: url("images/Searchs_006.png");*/
   background-size: cover;
   background-position: center center;
 	padding:15px;
