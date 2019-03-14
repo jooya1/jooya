@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 
 from .models import Things
+import time
 from .forms import ThingsForm
 from .models import Things
 # Create your views here.
@@ -21,10 +22,11 @@ def AddNewThing(request):
         form = ThingsForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             thing = form.save(commit=False)
+            thing.title = request.POST.get('title')
             thing.description = request.POST.get('description')
+            thing.date_added = time.time()
             thing.user = request.user
             thing.image = request.FILES["image"]
-            thing.save()
             file_type = thing.image.url.split('.')[-1]
             file_type = file_type.lower()
             if file_type not in IMAGE_FILE_TYPES:
@@ -33,8 +35,9 @@ def AddNewThing(request):
                     'form': form,
                     'error_message': 'Image file must be PNG, JPG, or JPEG',
                 }
-                #return render(request, 'things/index.html', {'thing': thing})
-                thing.save()
+                return render(request, 'things/dashboard.html', {'context': context})
+            thing.save()
+            return render(request, 'things/dashboard.html')
         context = {
                 "form": form,
             }

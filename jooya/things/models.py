@@ -8,6 +8,7 @@ from django.forms import modelformset_factory
 
 class Things(models.Model):
 
+    title = models.CharField(max_length=1000, default='title')
     description = models.CharField(max_length=4000)
     date_added = models.DateField(auto_now=True)
     user = models.ForeignKey(User, related_name='things')
