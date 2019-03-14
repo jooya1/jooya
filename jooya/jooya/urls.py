@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'add', views.AddNewThing, name='add'),
+    url(r'^dashboard/$', views.dashboard, name='dashboard'),
+
 
 
     url(r'^signup/$', accounts_views.signup, name='signup'),

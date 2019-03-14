@@ -5,95 +5,118 @@
     <meta charset="UTF-8">
     <title></title>
     <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{% static "bootstrap-rtl.css" %}">
-        <link rel="stylesheet" href="{% static "css/vazir.css" %}">
-        <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "bootstrap-rtl.css" %}">
+    <link rel="stylesheet" href="{% static "css/vazir.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">جویا</a>
-            <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+    <a class="navbar-brand" href="#">جویا</a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
             <a class="nav-link" href="{% url 'index' %}">صفحه اصلی</a>
+
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'add' %}">اضافه کردن شی</a>
           </li>
             {% if user.is_authenticated %}
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">خروج</a>
-          </li>
 
-            {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">ورود</a>
-          </li>
+        </li>
+        {% if user.is_authenticated %}
+
             <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">داشبورد</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">خروج</a>
+            </li>
+
+        {% else %}
+            <li class="nav-item">
+
                 <a class="nav-link" href="{% url 'signup' %}">ثبت نام</a>
             </li>
 
                 {% endif %}
         </ul>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
 
-      </div>
-</nav>
-    <div class="container">
-    <br><br><br>
-        {% block body_block %}
-        {% endblock %}
-    <br><br>
+                <a class="nav-link" href="{% url 'login' %}">ورود</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">ثبت نام</a>
+            </li>
+        {% endif %}
+    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
     </div>
+</nav>
+<div class="container">
+    <br><br><br>
+    {% block body_block %}
+    {% endblock %}
+    <br><br>
+</div>
 <!-- Footer -->
 <footer class="page-footer font-small teal pt-4">
 
     <!-- Footer Text -->
     <div class="container-fluid text-center text-md-left">
 
-      <!-- Grid row -->
-      <div class="row">
+        <!-- Grid row -->
+        <div class="row">
 
-        <!-- Grid column -->
-        <div class="col-md-6 mt-md-0 mt-3">
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
 
-          <!-- Content -->
-          <h5 class="text-uppercase font-weight-bold text-right">متن 1 </h5>
-          <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
+                <!-- Content -->
+                <h5 class="text-uppercase font-weight-bold text-right">متن 1 </h5>
+                <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                    گرافیک است. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                    به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                    طراحی اساسا مورد استفاده قرار گیرد. </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mb-md-0 mb-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase font-weight-bold  text-right"> متن 2 </h5>
+                <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                    گرافیک است. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                    به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                    طراحی اساسا مورد استفاده قرار گیرد. </p>
+                <br><br>
+
+            </div>
+            <!-- Grid column -->
 
         </div>
-        <!-- Grid column -->
-
-        <hr class="clearfix w-100 d-md-none pb-3">
-
-        <!-- Grid column -->
-        <div class="col-md-6 mb-md-0 mb-3">
-
-          <!-- Content -->
-          <h5 class="text-uppercase font-weight-bold  text-right"> متن 2 </h5>
-          <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
-            <br><br>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
+        <!-- Grid row -->
 
     </div>
     <!-- Footer Text -->
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-1">© 2018 Copyright:
-      <a href="https://iut.ac.ir"> IUT Web Development Group </a>
+        <a href="https://iut.ac.ir"> IUT Web Development Group </a>
     </div>
     <!-- Copyright -->
 
-  </footer>
-  <!-- Footer -->
+</footer>
+<!-- Footer -->
 
 </body>
 </html>
