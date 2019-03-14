@@ -14,7 +14,31 @@
                     {% endif %}
                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% include 'things/form_template.html' %}
+
+                        {% for field in form %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <span class="text-danger small">{{ field.errors }}</span>
+                            </div>
+                                {%if field.label == 'Description'%}
+                                <label class="control-label col-sm-2" >توضیحات</label>
+                                {% endif %}
+
+                                {% if field.label == 'Title' %}
+                                <label class="control-label col-sm-2" >عنوان</label>
+                                {% endif %}
+
+                                {% if field.label == 'User' %}
+                                <label class="control-label col-sm-2" >کاربر</label>
+                                {% endif %}
+
+                                {% if field.label == 'Image' %}
+                                <label class="control-label col-sm-2" >عکس</label>
+                                {% endif %}
+                            <div class="col-sm-10">{{ field }}</div>
+                        </div>
+                        {% endfor %}
+
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-success">Submit</button>
