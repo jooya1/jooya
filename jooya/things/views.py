@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-
+from .documents import ThingDocument
 from .models import Things
 import time
 from .forms import ThingsForm
@@ -9,9 +9,16 @@ from .models import Things
 # Create your views here.
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
-
 def index(request):
-    return render(request, 'things/index.html')
+
+    q = request.GET.get('q')
+
+    if q:
+        posts = ThingDocument.search().query("match", title=q)
+    else:
+        posts = ''
+
+    return render(request, 'things/index.html', {'posts': posts})
 
 
 #@login_required

@@ -19,6 +19,7 @@ class ThingDocument(DocType):
         fields = [
             'title',
             'description',
+            'image',
         ]
 
         # Ignore auto updating of Elasticsearch when a model is saved
