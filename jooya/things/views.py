@@ -34,7 +34,6 @@ def AddNewThing(request):
             thing.date_added = time.time()
             thing.user = request.user
             thing.image = request.POST.get('image')
-
             thing.save()
             return render(request, 'things/dashboard.html')
         context = {
