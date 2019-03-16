@@ -7,7 +7,6 @@ import time
 from .forms import ThingsForm
 from .models import Things
 # Create your views here.
-IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 def index(request):
 
@@ -31,9 +30,9 @@ def AddNewThing(request):
             thing = form.save(commit=False)
             thing.title = request.POST.get('title')
             thing.description = request.POST.get('description')
+            thing.image = request.FILES['image']
             thing.date_added = time.time()
             thing.user = request.user
-            thing.image = request.POST.get('image')
             thing.save()
             return render(request, 'things/dashboard.html')
         context = {

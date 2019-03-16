@@ -18,18 +18,3 @@ class Things(models.Model):
         # Built-in attribute of django.contrib.auth.models.User !
         return self.title
 
-
-'''
-@login_required
-def AddNewThing(request):
-    ThingsFormSet = modelformset_factory(Things, fields=('name', 'price', 'category'), extra=0)
-    data = request.POST or None
-    formset = ProductFormSet(data=data, queryset=Product.objects.filter(user=request.user))
-    for form in formset:
-        form.fields['category'].queryset = Category.objects.filter(user=request.user)
-
-    if request.method == 'POST' and formset.is_valid():
-        formset.save()
-        return redirect('products_list')
-
-    return render(request, 'products/products_formset.html', {'formset': formset})'''
