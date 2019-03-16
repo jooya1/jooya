@@ -16,33 +16,21 @@
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
             <a class="nav-link" href="{% url 'index' %}">صفحه اصلی</a>
-
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add' %}">اضافه کردن شی</a>
-          </li>
-            {% if user.is_authenticated %}
-
         </li>
         {% if user.is_authenticated %}
-
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'dashboard' %}">داشبورد</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'add' %}">اضافه کردن شی</a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">خروج</a>
             </li>
 
         {% else %}
             <li class="nav-item">
-
-                <a class="nav-link" href="{% url 'signup' %}">ثبت نام</a>
-            </li>
-
-                {% endif %}
-        </ul>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-
                 <a class="nav-link" href="{% url 'login' %}">ورود</a>
             </li>
             <li class="nav-item">
@@ -52,7 +40,6 @@
     </ul>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
