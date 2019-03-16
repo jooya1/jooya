@@ -17,8 +17,8 @@ class ThingDocument(DocType):
 
         # The fields of the model you want to be indexed in Elasticsearch
         fields = [
+            'title',
             'description',
-            'name',
         ]
 
         # Ignore auto updating of Elasticsearch when a model is saved
