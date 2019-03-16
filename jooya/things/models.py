@@ -13,6 +13,12 @@ class Things(models.Model):
     date_added = models.DateField(auto_now=True)
     user = models.ForeignKey(User, related_name='things')
     image = models.ImageField(upload_to='things_pic', blank=True)
+
+    def __str__(self):
+        # Built-in attribute of django.contrib.auth.models.User !
+        return self.title
+
+
 '''
 @login_required
 def AddNewThing(request):

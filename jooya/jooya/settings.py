@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'elasticsearch_dsl',
+    'django_elasticsearch_dsl',
+
+
     'widget_tweaks',
     'things',
     'accounts',
@@ -118,6 +122,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Define ELASTICSEARCH_DSL
+
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
