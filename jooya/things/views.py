@@ -26,16 +26,8 @@ def AddNewThing(request):
             thing.description = request.POST.get('description')
             thing.date_added = time.time()
             thing.user = request.user
-            thing.image = request.FILES["image"]
-            file_type = thing.image.url.split('.')[-1]
-            file_type = file_type.lower()
-            if file_type not in IMAGE_FILE_TYPES:
-                context = {
-                    'thing': thing,
-                    'form': form,
-                    'error_message': 'Image file must be PNG, JPG, or JPEG',
-                }
-                return render(request, 'things/dashboard.html', {'context': context})
+            thing.image = request.POST.get('image')
+
             thing.save()
             return render(request, 'things/dashboard.html')
         context = {
