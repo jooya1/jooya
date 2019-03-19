@@ -8,21 +8,11 @@ from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView
 from django.contrib import messages
 
-from .forms import SignUpForm, UserInformationUpdateForm, ProfileForm
+from .forms import UserInformationUpdateForm
 
 from .models import Account
 
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            auth_login(request, user)
-            return redirect('index')
-    else:
-        form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
 
 
 @method_decorator(login_required, name='dispatch')

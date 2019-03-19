@@ -1,4 +1,4 @@
-from django_elasticsearch_dsl import DocType, Index
+from django_elasticsearch_dsl import DocType, Index,fields
 from .models import Things
 
 # Name of the Elasticsearch index
