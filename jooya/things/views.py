@@ -45,3 +45,4 @@ def AddNewThing(request):
 def dashboard(request):
     return render(request, 'things/dashboard.html')
 
+

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-
-  <title>dashboard</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "things/base.html" %}
+{% block body_block %}
+    {% if user.is_authenticated %}
+         <label for='description' class="control-label col-sm-2" >{{user.get_username }}</label>
+    {% else %}
+    <h1>برای دسترسی به این قسمت میباست وارد سایت شوید</h1>>
+    {% endif %}
+{% endblock %}
