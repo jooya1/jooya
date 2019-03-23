@@ -3,13 +3,30 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from .documents import ThingDocument
 from .models import Things
+from django.db.models import Q
 import time
 from .forms import ThingsForm
 from .models import Things
 # Create your views here.
 
 def index(request):
+    if not request.user.is_authenticated():
+        return render(request, 'login.html')
+    else:
+        things = Things.objects.filter(user=request.user)
+        query = request.GET.get("q")
+        if query:
+            things = things.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query)
+            ).distinct()
 
+            return render(request, 'things/index.html', {
+                'posts': things,
+            })
+        else:
+            return render(request, 'things/index.html', {'things':things})
+'''
     q = request.GET.get('q')
 
     if q:
@@ -18,7 +35,7 @@ def index(request):
         posts = ''
 
     return render(request, 'things/index.html', {'posts': posts})
-
+'''
 
 #@login_required
 def AddNewThing(request):
