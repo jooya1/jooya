@@ -13,7 +13,7 @@ def index(request):
     if not request.user.is_authenticated():
         return render(request, 'login.html')
     else:
-        things = Things.objects.filter(user=request.user)
+        things = Things.objects.all()
         query = request.GET.get("q")
         if query:
             things = things.filter(
