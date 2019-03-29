@@ -1,41 +1,26 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
-from .documents import ThingDocument
+from .search import *
 from .models import Things
-from django.db.models import Q
 import time
 from .forms import ThingsForm
-from .models import Things
+from django.contrib.auth.models import User
+from .filters import UserFilter
+
 # Create your views here.
+IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 def index(request):
-    if not request.user.is_authenticated():
-        return render(request, 'login.html')
-    else:
-        things = Things.objects.all()
-        query = request.GET.get("q")
-        if query:
-            things = things.filter(
-                Q(title__icontains=query) |
-                Q(description__icontains=query)
-            ).distinct()
 
-            return render(request, 'things/index.html', {
-                'posts': things,
-            })
-        else:
-            return render(request, 'things/index.html', {'things':things})
-'''
     q = request.GET.get('q')
 
     if q:
-        posts = ThingDocument.search().query("match", title=q)
+        posts = Search().query("match", title=q)
     else:
         posts = ''
 
     return render(request, 'things/index.html', {'posts': posts})
-'''
+
 
 #@login_required
 def AddNewThing(request):
@@ -51,7 +36,7 @@ def AddNewThing(request):
             thing.date_added = time.time()
             thing.user = request.user
             thing.save()
-            return render(request, 'things/dashboard.html')
+            return render(request, 'things/index.html')
         context = {
                 "form": form,
             }
@@ -59,7 +44,15 @@ def AddNewThing(request):
         #return render(request, 'things/AddThing.html')
 
 
+# def dashboard(request):
+#
+#     username = request.GET.get('username')
+#     if User.objects.filter(username=username).exists():
+#         print(User.objects.filter(username=username).all())
+#
+#     return render(request, 'things/dashboard.html')
+
 def dashboard(request):
-    return render(request, 'things/dashboard.html')
-
-
+    user_list = User.objects.all()
+    user_filter = UserFilter(request.GET, queryset=user_list)
+    return render(request, 'things/dashboard.html', {'filter': user_filter})
