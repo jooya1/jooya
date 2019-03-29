@@ -23,16 +23,74 @@
                 </fieldset>
             </form>
         </div>
-                {% for item in posts %}
-                    <br>
-                  {{ item.title }}
-                  {{ item.description }}
-                  {{ item.image }}
-                  {{ item.user  }}
-                  <br>
+      <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>title</th>
+        <th>description</th>
+        <th>Date joined</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in posts %}
+        <tr>
+          <td><img src="{{ item.image }}" alt="Smiley face" width="240"></td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.date_added }}</td>
+          <td><a class="nav-link" href="{% url 'dashboard' %}?username={{ item.user }}">{{ item.user }}</a></td>
 
-                {% endfor %}
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
         <!-- END Search_box -->
     </div>
 
+        <!-- Footer Text -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase font-weight-bold text-right">متن 1 </h5>
+                <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                    گرافیک است. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                    به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                    طراحی اساسا مورد استفاده قرار گیرد. </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mb-md-0 mb-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase font-weight-bold  text-right"> متن 2 </h5>
+                <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                    گرافیک است. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                    به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                    طراحی اساسا مورد استفاده قرار گیرد. </p>
+                <br><br>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Text -->
 {% endblock %}
