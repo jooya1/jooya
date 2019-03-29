@@ -8,7 +8,7 @@
         <div class="col-sm-12 col-md-7">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3>اضافه کردن شی جدید</h3>
+                    <h3>Add a New Album</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
@@ -21,22 +21,21 @@
                                 <span class="text-danger small">{{ field.errors }}</span>
                             </div>
                                 {%if field.label == 'Description'%}
-                                <label for='description' class="control-label col-sm-2" >توضیحات</label>
-                                <div class="col-sm-10">{{ field }}</div>
+                                <label class="control-label col-sm-2" >توضیحات</label>
                                 {% endif %}
 
                                 {% if field.label == 'Title' %}
-                                <label for='title' class="control-label col-sm-2" >عنوان</label>
-                                    <div class="col-sm-10">{{ field }}</div>
+                                <label class="control-label col-sm-2" >عنوان</label>
+                                {% endif %}
 
+                                {% if field.label == 'User' %}
+                                <label class="control-label col-sm-2" >کاربر</label>
                                 {% endif %}
 
                                 {% if field.label == 'Image' %}
-                                <label for='image' class="control-label col-sm-2" >عکس</label>
-                                    <div class="col-sm-10">{{ field }}</div>
-
+                                <label class="control-label col-sm-2" >عکس</label>
                                 {% endif %}
-
+                            <div class="col-sm-10">{{ field }}</div>
                         </div>
                         {% endfor %}
 
