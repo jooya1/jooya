@@ -1,5 +1,5 @@
 from .models import Things
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 
@@ -8,3 +8,9 @@ from django.dispatch import receiver
 def index_post(sender, instance, **kwargs):
     print(instance)
     instance.indexing()
+
+
+@receiver(post_delete, sender=Things)
+def delete_post(sender, instance, **kwargs):
+    print(instance)
+    instance.deleting()

@@ -1,9 +1,6 @@
-from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.contrib.auth.models import User
 from .search import ThingIndex
-# Create your models here.
-from django.forms import modelformset_factory
 
 
 class Things(models.Model):
@@ -25,6 +22,19 @@ class Things(models.Model):
             description=self.description
         )
         obj.save()
+        return obj.to_dict(include_meta=True)
+
+    # Method for deleting the model
+    def deleting(self):
+        obj = ThingIndex(
+            meta={'id': self.id},
+            user=self.user.username,
+            date_added=self.date_added,
+            title=self.title,
+            image=self.image.url,
+            description=self.description
+        )
+        obj.delete()
         return obj.to_dict(include_meta=True)
 
     def __str__(self):
