@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .search import *
 from .models import Things
 import time
@@ -36,7 +36,8 @@ def AddNewThing(request):
             thing.date_added = time.time()
             thing.user = request.user
             thing.save()
-            return render(request, 'things/index.html')
+            response = redirect('../')
+            return response
         context = {
                 "form": form,
             }
