@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'elasticsearch_dsl',
-    # 'django_elasticsearch_dsl',
+    'elasticsearch_dsl',
+    'django_elasticsearch_dsl',
 
     'django_filters',
     'widget_tweaks',
