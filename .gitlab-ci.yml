@@ -12,4 +12,5 @@ test:
   stage: test
   script:
   - sleep 3
+  - cd jooya
   - python3 jooya/manage.py test
