@@ -3,6 +3,7 @@ image: "python:3.7"
 before_script:
   - apt-get update -qy
   - apt-get install -y sudo screen docker docker.io
+  - sudo usermod -aG docker
   - chmod 755 ./start_elasticsearch.sh
   - ./start_elasticsearch.sh
   - pip3 install -r requirements.txt
