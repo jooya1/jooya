@@ -12,3 +12,4 @@ class ThingsForm(forms.ModelForm):
     class Meta:
         model = Things
         fields = ['title', 'description', 'image']
+        labels = {'title': 'Title'}

@@ -5,7 +5,7 @@ from .search import ThingIndex
 
 class Things(models.Model):
 
-    title = models.CharField(max_length=1000, default='title')
+    title = models.CharField(max_length=1000)
     description = models.CharField(max_length=4000)
     date_added = models.DateField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='things')
