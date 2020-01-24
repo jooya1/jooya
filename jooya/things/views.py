@@ -13,7 +13,6 @@ IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 def index(request):
     q = request.GET.get('q')
-
     if q:
         posts = Search().query("multi_match", query=q, fields=['title', 'description'])
     else:
