@@ -11,6 +11,7 @@ class ProfileInline(admin.StackedInline):
     verbose_name_plural = 'Account'
     fk_name = 'user'
 
+
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline, )
 
