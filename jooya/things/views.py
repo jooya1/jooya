@@ -12,9 +12,9 @@ IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 
 def index(request):
-    if not request.user.is_authenticated():
-        return redirect('login')
-    else:
+    # if not request.user.is_authenticated():
+    #     return redirect('login')
+    # else:
         q = request.GET.get('q')
 
         if q:
