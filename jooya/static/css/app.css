@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  direction: rtl;
 }
 
 .navbar-brand {
@@ -18,6 +19,7 @@ blockquote {
   height: auto !important;
   height: 100%;
   margin: 0 auto -60px;
+  direction: rtl;
 }
 
 .push {
