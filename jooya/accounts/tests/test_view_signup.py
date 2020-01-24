@@ -83,3 +83,5 @@ class InvalidSignUpTests(TestCase):
 
     def test_dont_create_user(self):
         self.assertFalse(User.objects.exists())
+
+

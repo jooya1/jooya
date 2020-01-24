@@ -94,3 +94,5 @@ class InvalidMyAccountTests(MyAccountTestCase):
     def test_form_errors(self):
         form = self.response.context['form']
         self.assertTrue(form.errors)
+
+

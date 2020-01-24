@@ -27,3 +27,5 @@ class PasswordResetMailTests(TestCase):
 
     def test_email_to(self):
         self.assertEqual(['john@doe.com', ], self.email.to)
+
+

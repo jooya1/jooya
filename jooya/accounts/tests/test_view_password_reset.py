@@ -156,3 +156,5 @@ class PasswordResetCompleteTests(TestCase):
     def test_view_function(self):
         view = resolve('/reset/complete/')
         self.assertEquals(view.func.view_class, auth_views.PasswordResetCompleteView)
+
+
