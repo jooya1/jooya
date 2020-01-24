@@ -10,6 +10,7 @@ from .filters import UserFilter
 # Create your views here.
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
+
 def index(request):
     if not request.user.is_authenticated():
         return redirect('login')
@@ -17,14 +18,13 @@ def index(request):
         q = request.GET.get('q')
 
         if q:
-            posts = Search().query("match", title=q)
+            posts = Search().query("multi_match", query=q, fields=['title', 'description'])
         else:
             posts = ''
 
         return render(request, 'things/index.html', {'posts': posts})
 
 
-#@login_required
 def AddNewThing(request):
     if not request.user.is_authenticated():
         return redirect('login')
@@ -44,8 +44,6 @@ def AddNewThing(request):
                 "form": form,
             }
         return render(request, 'things/AddThing.html', context)
-        #return render(request, 'things/AddThing.html')
-
 
 # def dashboard(request):
 #
