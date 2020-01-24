@@ -11,21 +11,23 @@ from .filters import UserFilter
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 def index(request):
-
-    q = request.GET.get('q')
-
-    if q:
-        posts = Search().query("match", title=q)
+    if not request.user.is_authenticated():
+        return redirect('login')
     else:
-        posts = ''
+        q = request.GET.get('q')
 
-    return render(request, 'things/index.html', {'posts': posts})
+        if q:
+            posts = Search().query("match", title=q)
+        else:
+            posts = ''
+
+        return render(request, 'things/index.html', {'posts': posts})
 
 
 #@login_required
 def AddNewThing(request):
     if not request.user.is_authenticated():
-        return render(request, 'login.html')
+        return redirect('login')
     else:
         form = ThingsForm(request.POST or None, request.FILES or None)
         if form.is_valid():
