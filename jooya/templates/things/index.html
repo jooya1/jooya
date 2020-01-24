@@ -57,14 +57,25 @@
             <!-- END Search_box -->
         </div>
     {% else %}
-        <div class="card-body">
-          <h3 class="card-title">ورود</h3>
-          <form method="post" novalidate>
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ next }}">
-            {% include '../includes/form.html' %}
-            <button type="submit" class="btn btn-primary btn-block">ورود</button>
-          </form>
+        <div class="container">
+            <div class="card-columns d-flex justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                      <div class="card">
+                        <div class="card-body">
+                          <a class="nav-link" href="{% url 'login' %}" style="font-size: 30px; text-align: center;" >ورود</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                      <div class="card">
+                        <div class="card-body">
+                          <a class="nav-link" href="{% url 'signup' %}" style="font-size: 30px; text-align: center;">ثبت‌نام</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     {% endif %}
 
