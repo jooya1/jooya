@@ -13,4 +13,4 @@ test:
   script:
   - sleep 3
   - cd jooya
-  - python3 jooya/manage.py test
+  - python3 manage.py test
