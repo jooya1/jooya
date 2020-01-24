@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">اشیا ثبت شده</li>
+{% endblock %}
+{% block body_block %}
+      <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>عکس</th>
+        <th>عنوان</th>
+        <th>توضیحات</th>
+        <th>تاریخ ثبت</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in posts %}
+        <tr>
+          <td><img src="{{ item.image }}" alt="Smiley face" width="240"></td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.date_added }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">شی یافت نشد.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

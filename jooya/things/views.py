@@ -52,7 +52,13 @@ def AddNewThing(request):
 #
 #     return render(request, 'things/dashboard.html')
 
+
 def dashboard(request):
     user_list = User.objects.all()
     user_filter = UserFilter(request.GET, queryset=user_list)
     return render(request, 'things/dashboard.html', {'filter': user_filter})
+
+
+def things(request):
+    things_list = Things.objects.filter(user=request.user)
+    return render(request, 'things/things.html', {'posts': things_list})

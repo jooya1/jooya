@@ -1,9 +1,15 @@
-{% extends "things/base.html" %}
+{% extends "base.html" %}
+{% load static %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">مشخصات ثبت کننده شی</li>
+{% endblock %}
+
 {% block body_block %}
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="{% static "css/bootstrap1.min.css" %}" id="bootstrap-css" >
 {#<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>#}
 {#<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>#}
+
 
     <div class="container">
     <div class="row">
@@ -18,16 +24,14 @@
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4>
-                            {{ user.get_full_name }}-{{ user.username }}</h4>
-                        <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
+                            {{ user.get_full_name }}</h4>
+                        <small><cite title="username">{{ user.username }}<i class="glyphicon">
                         </i></cite></small>
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i>{{ user.email }}
+                            <i class="glyphicon glyphicon-envelope"></i> {{ user.email }}
                             <br />
-                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
-                            <br />
-                            <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
                         <!-- Split button -->
+                        <!--
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
                                 Social</button>
@@ -41,6 +45,7 @@
                                 <li class="divider"></li>
                                 <li><a href="#">Github</a></li>
                             </ul>
+                            -->
                         </div>
                     </div>
                 </div>
