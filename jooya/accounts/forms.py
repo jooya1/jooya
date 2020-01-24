@@ -12,8 +12,12 @@ class SignUpForm(UserCreationForm):
 
 
 class UserInformationUpdateForm(forms.ModelForm):
-        email = forms.EmailField()
+        email = forms.EmailField(label='ایمیل')
 
         class Meta:
             model = User
             fields = ('first_name', 'last_name', 'email', )
+            labels = {
+                "first_name": "نام",
+                "last_name": "نام خانوادگی"
+            }
