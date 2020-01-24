@@ -4,57 +4,69 @@
 {% endblock %}
 {% block body_block %}
 
-    <div class="jumbotron">
-        <h1 style="text-align: center;">جویا</h1>
-        <br>
-        <h5 style="text-align: center;">اسم شیأ گم شده را وارد کنید . </h5>
-        <br>
-        <!-- Search_box -->
-        <div class="s006 mx-auto">
-            <form method="get">
-                <fieldset>
-                    <div class="inner-form">
-                        <div class="input-field">
-                            <button class="btn-search" type="button submit" value="Submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                                </svg>
-                            </button>
-                            <input id="search" name="q" type="text" placeholder="جوینده یابنده است ">
+    {% if user.is_authenticated %}
+        <div class="jumbotron">
+            <h1 style="text-align: center;">جویا</h1>
+            <br>
+            <h5 style="text-align: center;">اسم شیأ گم شده را وارد کنید . </h5>
+            <br>
+            <!-- Search_box -->
+            <div class="s006 mx-auto">
+                <form method="get">
+                    <fieldset>
+                        <div class="inner-form">
+                            <div class="input-field">
+                                <button class="btn-search" type="button submit" value="Submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                                    </svg>
+                                </button>
+                                <input id="search" name="q" type="text" placeholder="جوینده یابنده است ">
+                            </div>
                         </div>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-      <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>image</th>
-        <th>title</th>
-        <th>description</th>
-        <th>Date joined</th>
-        <th>User</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in posts %}
-        <tr>
-          <td><img src="{{ item.image }}" alt="Smiley face" width="240"></td>
-          <td>{{ item.title }}</td>
-          <td>{{ item.description }}</td>
-          <td>{{ item.date_added }}</td>
-          <td><a class="nav-link" href="{% url 'dashboard' %}?username={{ item.user }}">{{ item.user }}</a></td>
+                    </fieldset>
+                </form>
+            </div>
+          <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>title</th>
+            <th>description</th>
+            <th>Date joined</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in posts %}
+            <tr>
+              <td><img src="{{ item.image }}" alt="Smiley face" width="240"></td>
+              <td>{{ item.title }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.date_added }}</td>
+              <td><a class="nav-link" href="{% url 'dashboard' %}?username={{ item.user }}">{{ item.user }}</a></td>
 
-        </tr>
-      {% empty %}
-        <tr>
-          <td colspan="5">No data</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-        <!-- END Search_box -->
-    </div>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="5">No data</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+            <!-- END Search_box -->
+        </div>
+    {% else %}
+        <div class="card-body">
+          <h3 class="card-title">ورود</h3>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {% include '../includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-block">ورود</button>
+          </form>
+        </div>
+    {% endif %}
 
         <!-- Footer Text -->
     <div class="container-fluid text-center text-md-left">

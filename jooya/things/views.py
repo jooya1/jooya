@@ -12,17 +12,14 @@ IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 
 def index(request):
-    if not request.user.is_authenticated():
-        return redirect('login')
+    q = request.GET.get('q')
+
+    if q:
+        posts = Search().query("multi_match", query=q, fields=['title', 'description'])
     else:
-        q = request.GET.get('q')
+        posts = ''
 
-        if q:
-            posts = Search().query("multi_match", query=q, fields=['title', 'description'])
-        else:
-            posts = ''
-
-        return render(request, 'things/index.html', {'posts': posts})
+    return render(request, 'things/index.html', {'posts': posts})
 
 
 def AddNewThing(request):
