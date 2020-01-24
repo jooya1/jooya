@@ -73,5 +73,5 @@ Reach out to me at one of the following places!
 [![License](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2018 © <a href="https://gitlab.com/zargarzadehm/tickets" target="_blank">ticket Project</a>.
+- Copyright 2018 © <a href="https://gitlab.com/jooya1/jooya" target="_blank">JOOYA Project</a>.
 
