@@ -16,6 +16,12 @@
         {{ 'تکرار پسورد' }}
     {% elif field.label == "Username" %}
         {{ 'نام کاربری' }}
+    {% elif field.label == "Old password" %}
+        {{ 'پسورد قدیمی' }}
+    {% elif field.label == "New password" %}
+        {{ 'پسورد جدید' }}
+    {% elif field.label == "New password confirmation" %}
+        {{ 'تکرار پسورد جدید' }}
     {% else %}
         {{ field.label }}
     {% endif %}
@@ -25,8 +31,12 @@
         {{ error }}
       </div>
     {% endfor %}
-    {% if field.help_text %}
+    {% if field.help_text == '<ul><li>Your password can&#39;t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can&#39;t be a commonly used password.</li><li>Your password can&#39;t be entirely numeric.</li></ul>' %}
       <small class="form-text text-muted">
+        {{ '<li>پسورد شما نباید شبیه اطلاعات شخصی شما باشد.</li><li>پسورد شما باید حداقل شامل ۸ کاراکتر باشد.</li><li>پسورد شما نباید از پسورد‌های رایج باشد.</li><li>پسورد شما نباید فقط شامل اعداد باشد.</li>' }}
+      </small>
+    {% else %}
+       <small class="form-text text-muted">
         {{ field.help_text|safe }}
       </small>
     {% endif %}
