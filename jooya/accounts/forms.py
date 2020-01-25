@@ -13,6 +13,13 @@ class SignUpForm(UserCreationForm):
                                              '<li>پسورد شما نباید فقط شامل اعداد باشد.</li>'
 
         self.fields['password2'].help_text = 'پسورد خود را دوباره وارد نمایید.'
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
+        self.fields['username'].required = True
+        self.fields['email'].required = True
+        self.fields['password1'].required = True
+        self.fields['password2'].required = True
+
     email = forms.CharField(max_length=254, required=True, widget=forms.EmailInput(), label='ایمیل')
 
     class Meta:

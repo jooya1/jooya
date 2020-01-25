@@ -28,7 +28,11 @@
     {% render_field field class=field|input_class %}
     {% for error in field.errors %}
       <div class="invalid-feedback">
-        {{ error }}
+        {% if error == 'This field is required.' %}
+            {{ 'این فیلد ضروری می‌باشد.' }}
+        {% else %}
+          {{ error }}
+        {% endif %}
       </div>
     {% endfor %}
     {% if field.help_text == '<ul><li>Your password can&#39;t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can&#39;t be a commonly used password.</li><li>Your password can&#39;t be entirely numeric.</li></ul>' %}
