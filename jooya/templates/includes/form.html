@@ -10,7 +10,15 @@
 
 {% for field in form %}
   <div class="form-group">
-    {{ field.label_tag }}
+    {% if field.label == "Password" %}
+        {{ 'پسورد' }}
+    {% elif field.label == "Password confirmation" %}
+        {{ 'تکرار پسورد' }}
+    {% elif field.label == "Username" %}
+        {{ 'نام کاربری' }}
+    {% else %}
+        {{ field.label }}
+    {% endif %}
     {% render_field field class=field|input_class %}
     {% for error in field.errors %}
       <div class="invalid-feedback">
