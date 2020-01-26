@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class SignUpForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
+        required_css_class = 'required'
         self.fields['username'].help_text = 'حداکثر ۱۵۰ کاراکتر - تنها شامل حروف و اعداد انگلیسی باشد.'
         self.fields['password1'].help_text = '<li>پسورد شما نباید شبیه اطلاعات شخصی شما باشد.</li>' \
                                              '<li>پسورد شما باید حداقل شامل ۸ کاراکتر باشد.</li>' \
