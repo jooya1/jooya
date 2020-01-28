@@ -65,7 +65,7 @@ $ python manage.py runserver
 
 Reach out to me at one of the following places!
 
-- Email at <a href="mailto:moein@neolyze.com" target="_blank">moein@neolyze.com</a>
+- Email at <a href="mailto:moein.zargarzadeh@gmail.com" target="_blank">moein.zargarzadeh@gmail.com</a>
 - Email at <a href="mailto:m.abdollahi776@gmail.com" target="_blank">m.abdollahi776@gmail.com</a>
 
 # **License**
