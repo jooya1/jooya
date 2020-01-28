@@ -65,13 +65,10 @@ $ python manage.py runserver
 
 Reach out to me at one of the following places!
 
-<!--- Telegram at <a href="https://t.me/zargarzadehmoein" target="_blank">@zargarzadehmoein</a>-->
 - Email at <a href="mailto:moein@neolyze.com" target="_blank">moein@neolyze.com</a>
+- - Email at <a href="mailto:m.abdollahi776@gmail.com" target="_blank">m.abdollahi776@gmail.com</a>
 
 # **License**
 
-[![License](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
 - Copyright 2018 © <a href="https://gitlab.com/jooya1/jooya" target="_blank">JOOYA Project</a>.
 
