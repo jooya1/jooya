@@ -1,4 +1,4 @@
-# **Jooya Project** [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://gitlab.com/jooya1/jooya)
+# **Jooya Project** [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/jooya1/jooya)
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
 ![Build](https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript/task/SECO-2168.svg)
@@ -9,7 +9,7 @@ This is search engine system using django Web server.
 
 stable release version: ![version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 
-Author : Moein Zargarzadeh - Mohammad Abdollahi - Fatemeh Heidari - Narges Talebi
+Author : Moein Zargarzadeh - Mohammad Abdollahi - Seyed Mostafa hosseini
 
 Language : Python 3.6.5
 
@@ -21,7 +21,7 @@ Language : Python 3.6.5
 First of All Clone the Project : 
 
 ```shell
-$ https://gitlab.com/jooya1/jooya.git
+$ https://github.com/jooya1/jooya.git
 ```
 
 ## Step1 : Requirements
@@ -70,5 +70,5 @@ Reach out to me at one of the following places!
 
 # **License**
 
-- Copyright 2018 © <a href="https://gitlab.com/jooya1/jooya" target="_blank">JOOYA Project</a>.
+- Copyright 2018 © <a href="https://github.com/jooya1/jooya" target="_blank">JOOYA Project</a>.
 
